@@ -7,12 +7,13 @@ export default function CharacterCard() {
         async function fetchData() {
             const result = await fetch("https://www.swapi.tech/api/people");
             const data = await result.json();
-            setCharacters(data);
+            setCharacters(data.results);
             
         }
         fetchData()
-        console.log(characters)
+        
     }, [])
+    console.log(characters)
     return (
         <div>
             {characters.length ? characters.map((character, index) => (
