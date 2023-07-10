@@ -7,19 +7,17 @@ export default function CharacterDescription() {
     async function fetchData() {
         const result = await fetch("https://www.swapi.tech/api/people/"+id);
         const data = await result.json();
-        setCharacter(data.results);
+        setCharacter(data.result.properties);
     }
     fetchData()
-}, [])
+}, []) 
   return (
     <div>
       <h1>{character.name}</h1>
       <h2>{character.hair_color}</h2>
       <h2>{character.eye_color}</h2>
       <h2>{character.birth_year}</h2>
-      <h2>{character.homeworld}</h2>
       <h2>{character.description}</h2>
-
     </div>
   )
 }
